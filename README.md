@@ -16,6 +16,7 @@
 - `docs/privacy-and-safety.md`：隱私、安全、不要公開 token 的提醒。
 - `docs/troubleshooting.md`：常見錯誤排查。
 - `docs/publish-to-github.md`：發布到 GitHub 前的安全提醒。
+- `docs/advanced-agent-deployment.md`：進階使用者讓 agent 透過 n8n API/MCP 協助部署的提醒。
 - `security/sanitization-checklist.md`：公開前檢查清單。
 - `scripts/security-scan.sh`：簡易敏感資料掃描腳本。
 
@@ -64,6 +65,12 @@
 - n8n 的 `database.sqlite`、`config`、log 檔
 
 這個 repo 附的是公開模板，不包含作者原本的私人 token 與家庭資料。
+
+## 進階使用者
+
+一般使用者不需要設定 n8n API key 或 n8n MCP。照 README 匯入 workflow、手動填設定就可以。
+
+如果你很熟 agent，也理解 API key 權限風險，可以看 [docs/advanced-agent-deployment.md](docs/advanced-agent-deployment.md)，讓 agent 透過 n8n API 或 MCP 協助部署與檢查。
 
 ## 適合誰
 

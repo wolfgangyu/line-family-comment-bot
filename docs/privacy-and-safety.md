@@ -14,6 +14,8 @@
 - n8n `database.sqlite`
 - n8n `config`
 - n8n log 檔
+- n8n API key
+- n8n MCP 連線設定或任何可操作 n8n 的權杖
 
 ## 對家人透明
 
@@ -40,3 +42,10 @@ workflow 的圖片 prompt 已經刻意保守：
 
 如果你要修改 prompt，請保留這些安全規則。
 
+## n8n API key 與 MCP
+
+n8n API key 或 MCP 連線可能讓 agent 讀取、建立、修改、啟用你的 workflow。這很方便，但也代表權限很大。
+
+一般新手不需要設定 n8n API key 或 MCP。若你只是要安裝這個 bot，建議使用 n8n UI 手動匯入 workflow。
+
+只有在你信任 agent、理解權限風險，而且知道如何撤銷 API key 時，才考慮進階自動部署。
