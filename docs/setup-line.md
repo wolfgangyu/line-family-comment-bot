@@ -10,7 +10,7 @@
    - Channel secret
    - Channel access token
 
-這些資料都是私密資料，請不要上傳到 GitHub。
+這些資料都是私密資料，請不要貼到公開地方，也不要交給不信任的人或 agent。
 
 如果你以前沒有申請過 LINE Bot，可以請 agent 先陪你完成這一段，不要急著跳到 n8n。LINE channel 沒建好，後面 webhook 就無法測試。
 

@@ -6,7 +6,7 @@
 
 你不需要是工程師。建議你把這個 GitHub repo 網址貼給 Codex、Claude Code、Gemini CLI 或其他 coding agent，請它依照 [AGENTS.md](AGENTS.md) 一步一步帶你安裝。
 
-## 這份 repo 裡有什麼
+## 安裝時主要看這些
 
 - `workflows/LINE_FAMILY_COMMENT_BOT.public.json`：可匯入 n8n 的公開版工作流。
 - `docs/setup-line.md`：LINE Developers 設定教學。
@@ -15,8 +15,13 @@
 - `docs/setup-llm.md`：LLM 模型選擇，包含 LM Studio、本地模型、Google Gemini API。
 - `docs/privacy-and-safety.md`：隱私、安全、不要公開 token 的提醒。
 - `docs/troubleshooting.md`：常見錯誤排查。
-- `docs/publish-to-github.md`：發布到 GitHub 前的安全提醒。
 - `docs/advanced-agent-deployment.md`：進階使用者讓 agent 透過 n8n API/MCP 協助部署的提醒。
+
+## 維護者才需要看
+
+如果你只是安裝使用，不需要理會這一段。
+
+- `docs/publish-to-github.md`：想改作自己的公開 repo 時，發布到 GitHub 前的安全提醒。
 - `security/sanitization-checklist.md`：公開前檢查清單。
 - `scripts/security-scan.sh`：簡易敏感資料掃描腳本。
 
@@ -55,7 +60,7 @@
 
 ## 很重要的安全提醒
 
-不要把以下資料上傳到 GitHub：
+不要把以下資料貼到公開地方，也不要交給不信任的人或 agent：
 
 - LINE channel access token
 - LINE channel secret
