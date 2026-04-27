@@ -27,7 +27,9 @@ fi
 echo
 echo "3) Suspicious strings in git history:"
 if command -v git >/dev/null 2>&1 && git -C "$ROOT" rev-parse --is-inside-work-tree >/dev/null 2>&1; then
-  git -C "$ROOT" grep -n -I -E "$SECRET_PATTERN" "$(git -C "$ROOT" rev-list --all)" || true
+  while IFS= read -r revision; do
+    git -C "$ROOT" grep -n -I -E "$SECRET_PATTERN" "$revision" || true
+  done < <(git -C "$ROOT" rev-list --all)
 else
   echo "Skipped: not a git repository."
 fi

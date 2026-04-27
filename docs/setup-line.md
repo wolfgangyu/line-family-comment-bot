@@ -31,6 +31,10 @@
 5. 開啟 Use webhook。
 6. 按 Verify 測試。
 
+如果你用本機 n8n，Webhook URL 不能是 `localhost`。你需要先用 Ngrok 取得公開網址。請看 [setup-ngrok.md](setup-ngrok.md)。
+
+臨時 Ngrok 網址重開後可能改變。如果 LINE 昨天可以、今天不行，請先檢查 Ngrok 網址是否變了。
+
 ## 先加為好友測試
 
 建議先把 bot 加為自己的 LINE 好友，不要一開始就放進家庭群組。

@@ -11,6 +11,7 @@
 - `workflows/LINE_FAMILY_COMMENT_BOT.public.json`：可匯入 n8n 的公開版工作流。
 - `docs/setup-line.md`：LINE Developers 設定教學。
 - `docs/setup-n8n.md`：n8n 匯入與設定教學。
+- `docs/setup-ngrok.md`：本機 n8n 對外網址與固定網址設定教學。
 - `docs/setup-llm.md`：LLM 模型選擇，包含 LM Studio、本地模型、Google Gemini API。
 - `docs/privacy-and-safety.md`：隱私、安全、不要公開 token 的提醒。
 - `docs/troubleshooting.md`：常見錯誤排查。
@@ -30,14 +31,17 @@
    - 隱私優先：LM Studio 本地模型。
    - 設定簡單：Google Gemini API。
    - 已有 API key：OpenAI-compatible 服務。
-6. 把 n8n webhook URL 貼回 LINE Developers。
-7. 啟用 workflow，傳訊息測試。
+6. 如果你用本機 n8n，先設定 Ngrok 公開網址。請看 [docs/setup-ngrok.md](docs/setup-ngrok.md)。
+7. 把 n8n webhook URL 貼回 LINE Developers。
+8. 啟用 workflow，傳訊息測試。
 
 ## 使用前先知道
 
 這個 bot 建議不要太吵。家庭群組裡如果每個人講一句它都回，大家很快會覺得煩。
 
 目前 workflow 已經刻意做得比較保守：通常需要特定長輩、醫療關鍵字、圖片，或明確叫到 bot 名字才會回。建議你先把機器人加為自己的 LINE 好友，測試文字和圖片都正常後，再放進家庭群組。
+
+如果你使用本機 n8n，LINE 需要一個可以從外網連進來的網址。新手最常用 Ngrok。請注意：免費臨時網址重開後可能會改變，LINE Developers 裡的 Webhook URL 也要跟著更新。想避免每天改網址，請設定 Ngrok static domain 或改用 n8n Cloud。
 
 這個 bot 有簡單記憶功能，預設會記得同一段對話最近約 5 則上下文。你可以到 n8n 的 `Simple Memory` 節點調整 `contextWindowLength`：
 

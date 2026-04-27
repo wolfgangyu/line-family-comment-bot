@@ -7,7 +7,22 @@
 - n8n workflow 是否已啟用。
 - Webhook URL 是否使用 Production URL，不是 Test URL。
 - n8n 是否能被外網連到。
+- 如果是本機 n8n，Ngrok 是否正在執行。
+- LINE Developers 裡的網址是否是 `https://.../webhook/linebot`，不是 `localhost`。
 - `Webhook` 節點 path 是否仍是 `linebot`。
+
+## 昨天可以，今天突然不回
+
+如果你使用本機 n8n 加 Ngrok，最常見原因是 Ngrok 臨時網址變了。
+
+請依序檢查：
+
+- n8n 是否正在執行。
+- Ngrok 是否正在執行。
+- Ngrok 畫面上的 `https://...` 網址是否和 LINE Developers 裡的 Webhook URL 一樣。
+- 如果不同，請把新的網址加上 `/webhook/linebot` 後貼回 LINE Developers。
+
+想避免這個問題，請設定 Ngrok static domain，或改用 n8n Cloud。
 
 ## LINE 有收到訊息但 bot 不回
 

@@ -21,6 +21,8 @@
 10. 強烈建議先讓使用者把 bot 加為自己的 LINE 好友測試，確認穩定後再邀請進家庭群組。
 11. 提醒使用者 bot 不要太吵。家庭群組裡機器人過度回覆會很煩，應優先保守回覆。
 12. 使用者遇到困難時，請鼓勵他貼錯誤訊息或截圖，並明確告訴他「這通常可以一步步排除」。
+13. 若使用者使用本機 n8n，請主動引導 Ngrok 或其他公開網址設定，並說明免費臨時網址重開後可能改變。
+14. 若使用者要穩定長期使用，請協助設定 Ngrok static domain，或建議改用 n8n Cloud / 正式部署。
 
 ## 安裝流程建議
 
@@ -44,10 +46,17 @@
    - 本地硬體不強建議 3 以下。
    - 想最省資源可設 0 或移除記憶。
    - 不建議超過 10，因為會增加 token 與模型負擔。
-8. 協助把 n8n production webhook URL 貼到 LINE Developers。
-9. 啟用 workflow。
-10. 先用使用者自己的 LINE 好友測試文字和圖片。
-11. 測試穩定後，再引導使用者加入家庭群組。
+8. 如果是本機 n8n，協助設定 Ngrok：
+   - 安裝 ngrok。
+   - 登入 ngrok 並設定 authtoken。
+   - 啟動 `ngrok http 5678`。
+   - 複製 `https://...ngrok...` 公開網址。
+   - 說明臨時網址重開可能改變。
+   - 若使用者要長期使用，引導設定 static domain，並把 n8n 的 webhook base URL 固定到該 domain。
+9. 協助把 n8n production webhook URL 貼到 LINE Developers。
+10. 啟用 workflow。
+11. 先用使用者自己的 LINE 好友測試文字和圖片。
+12. 測試穩定後，再引導使用者加入家庭群組。
 
 ## 嚴格禁止
 
@@ -63,6 +72,8 @@
 
 - n8n workflow 可以匯入。
 - Webhook production URL 可複製。
+- 若使用本機 n8n，Ngrok 公開網址可連到 n8n。
+- 若使用 Ngrok 臨時網址，使用者知道重開後可能要更新 LINE Webhook URL。
 - LINE Developers webhook 驗證通過。
 - 使用者先以 LINE 好友身份測試過。
 - LINE 傳文字且明確呼叫 bot 時會回覆。

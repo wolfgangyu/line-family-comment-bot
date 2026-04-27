@@ -59,6 +59,10 @@ Google Gemini API 不是完全等同 OpenAI-compatible；若你選 Google 路線
 
 匯入後，打開 `Webhook` 節點，複製 Production URL。
 
+如果你使用 n8n Cloud，Production URL 通常可以直接使用。
+
+如果你使用本機 n8n，Production URL 不能是 `localhost`，因為 LINE 在雲端，找不到你自己電腦裡的 `localhost`。請先依照 [setup-ngrok.md](setup-ngrok.md) 設定 Ngrok 或其他公開網址。
+
 通常長得像：
 
 ```text

@@ -9,6 +9,7 @@
 - LINE Developers：建立一個 LINE 機器人帳號。
 - n8n：負責接收 LINE 訊息，並決定要怎麼回。
 - LLM：負責產生自然語言回覆，例如 LM Studio 本地模型或 Google Gemini API。
+- Ngrok：如果你用本機 n8n，它負責給你的電腦一個外網可以連進來的網址。
 
 你可以把它想成：
 
@@ -23,9 +24,24 @@ LINE 群組訊息 -> n8n workflow -> LLM 產生回覆 -> n8n 回傳到 LINE
 3. 申請 LINE Messaging API channel。
 4. 把 LINE token 填進 n8n 的 `LINE Config`。
 5. 設定 LLM。
-6. 把 n8n webhook URL 貼到 LINE Developers。
-7. 先把 bot 加成自己的 LINE 好友測試。
-8. 文字和圖片都正常後，再邀請進家庭群組。
+6. 如果是本機 n8n，設定 Ngrok 公開網址。
+7. 把 n8n webhook URL 貼到 LINE Developers。
+8. 先把 bot 加成自己的 LINE 好友測試。
+9. 文字和圖片都正常後，再邀請進家庭群組。
+
+## 本機 n8n 為什麼需要 Ngrok
+
+LINE 在雲端，它要把訊息送到你的 n8n。可是如果 n8n 跑在你自己的電腦，LINE 預設找不到你的電腦。
+
+Ngrok 的作用是給你的本機 n8n 一個公開 HTTPS 網址，例如：
+
+```text
+https://something.ngrok-free.app
+```
+
+你再把這個網址加上 `/webhook/linebot`，貼到 LINE Developers。
+
+請注意：免費臨時網址重開後可能會變。若網址變了，LINE Developers 的 Webhook URL 也要一起更新。想穩定使用，請設定 Ngrok static domain，或使用 n8n Cloud。
 
 ## 為什麼不要一開始就加進群組
 
