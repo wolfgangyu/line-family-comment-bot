@@ -13,10 +13,10 @@
 - [ ] 沒有 LINE user id、group id、room id
 - [ ] 沒有家庭聊天截圖
 - [ ] workflow 裡只有 placeholder，不是真實 secret
+- [ ] Git history 裡沒有曾經上傳過的 secret
 
 建議執行：
 
 ```bash
 bash scripts/security-scan.sh
 ```
-
