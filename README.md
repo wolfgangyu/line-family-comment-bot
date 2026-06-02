@@ -1,14 +1,12 @@
 # LINE Family Comment Bot
 
+> 🇬🇧 [English version](README.en.md)
+
 這是一個給家庭 LINE 群組使用的 n8n 聊天機器人模板。
 
 它的設計目標很單純：當家人分享文字、圖片、生活近況、健康問題或長輩常見的轉傳訊息時，機器人可以用溫和、尊重、不敷衍的語氣回應。
 
 你不需要是工程師。建議你把這個 GitHub repo 網址貼給 Codex、Claude Code、Gemini CLI 或其他 coding agent，請它依照 [AGENTS.md](AGENTS.md) 一步一步帶你安裝。
-
-## Why this project matters
-
-In many Taiwanese family LINE groups, older relatives frequently share image-heavy greeting cards, blessing pictures, and "good morning" messages. This bot explores how AI can help generate polite, warm, and culturally appropriate Traditional Chinese replies while keeping the workflow self-hostable and developer-friendly.
 
 ## 安裝時主要看這些
 
