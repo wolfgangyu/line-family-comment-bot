@@ -6,6 +6,10 @@
 
 你不需要是工程師。建議你把這個 GitHub repo 網址貼給 Codex、Claude Code、Gemini CLI 或其他 coding agent，請它依照 [AGENTS.md](AGENTS.md) 一步一步帶你安裝。
 
+## Why this project matters
+
+In many Taiwanese family LINE groups, older relatives frequently share image-heavy greeting cards, blessing pictures, and "good morning" messages. This bot explores how AI can help generate polite, warm, and culturally appropriate Traditional Chinese replies while keeping the workflow self-hostable and developer-friendly.
+
 ## 安裝時主要看這些
 
 - `workflows/LINE_FAMILY_COMMENT_BOT.public.json`：可匯入 n8n 的公開版工作流。
