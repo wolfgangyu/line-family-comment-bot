@@ -60,6 +60,21 @@ The bot has simple memory built in. By default it remembers the last ~5 messages
 
 Longer memory means better context awareness, but also more tokens, higher API costs, and more load on local models. For family groups, we generally recommend staying under 10.
 
+### Validation and Test Matrix
+
+Once you complete the basic setup, or if you **customize the workflow by swapping the LLM core (e.g., Ollama, Groq) or the memory component (e.g., Redis)**, we highly recommend using the following test matrix to verify that the pipeline's semantic understanding and routing defense are fully functional:
+
+| Test Scenario | Test Input | Expected Behavior / Purpose | Remarks (for Custom LLM Tuning) |
+| :--- | :--- | :--- | :--- |
+| **Basic Routing** | Send any photo | Verifies that the Webhook, n8n multimedia nodes, and vision model capabilities are working smoothly. | If using a local model, ensure it supports multimodal capabilities (Vision). |
+| **Error Prevention** | Send a LINE Sticker | Verifies that the system correctly identifies the `Sticker` type and either gives a canned response or safely ignores it without triggering the LLM. | Prevents stickers from causing workflow errors or interruptions. |
+| **Core Intent Recognition** | "我肚子好痛喔" <br>(My stomach hurts so bad) | Verifies that the LLM accurately triggers the "healthcare/caring" intent and generates a warm reply. | This is a strong-intent baseline scenario; most models should handle this correctly. |
+| **Edge Case Test** | "早上起來一直流鼻水" <br>(I've been sniffling since I woke up) | Verifies the LLM's sensitivity to casual, non-emergency symptoms. The system should classify this as healthcare care rather than general small talk. | **Common Pitfall**: Smaller local models (e.g., Llama3/Gemma via Ollama) often misclassify this as standard small talk. If it doesn't reply, optimize your intent classification prompt. |
+| **Noise Filtering** | "今天天氣真好" <br>(The weather is nice today) | The system should **NOT reply** (or just log it silently). Verifies that daily small talk is not falsely triggered as a caring event. | Tests anti-spam boundaries to ensure the bot doesn't spam the family group. |
+| **Memory Continuity** | 1. "我今天感冒請假"<br>2. (5 mins later) "現在好多了" | 1. The system replies with care regarding the cold.<br>2. The system links the context and replies like: "Good to hear, make sure to get some rest!" | Verifies that Memory (e.g., Redis) correctly passes context to the prompt and the model can comprehend chat history. |
+
+> 💡 **Advanced Troubleshooting Tip**: If you switch to a local model (Ollama) and notice that edge cases like "流鼻水" (sniffling) receive no reply, it is usually because the model's output format (such as JSON fields) is broken or misclassified into the small talk branch. Open n8n's `Execution History`, click on the specific event, and inspect the LLM node's raw output to fine-tune your prompt.
+
 ## Security reminders
 
 Never share the following publicly or with untrusted people or agents:
